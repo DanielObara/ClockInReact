@@ -24,7 +24,7 @@ function App() {
   return (
     <Container>
       <Clock>
-        <Hour value={`${state.hh + state.mm / 12}deg`}>
+        <Hour value={`${state.hh}deg`}>
           <div className="hr" id="hr"></div>
         </Hour>
         <Minutes value={`${state.mn}deg`}>
