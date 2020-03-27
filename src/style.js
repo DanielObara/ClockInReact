@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import logo from "./logo.svg";
 import clock from "./clock.png";
+import Switch from "react-switch";
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #091921;
-
+  background: ${props => (props.theme.change ? "#f9f9f9" : "#091921")};
 `;
 
 export const Clock = styled.div`
@@ -25,8 +25,7 @@ export const Clock = styled.div`
   border-radius: 50%;
   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
     inset 0 -15px 15px rgba(255, 255, 255, 0.05),
-    0 15px 15px rgba(0, 0, 0, 0.03),
-    inset 0 15px 15px rgba(0, 0, 0, 0.03);
+    0 15px 15px rgba(0, 0, 0, 0.03), inset 0 15px 15px rgba(0, 0, 0, 0.03);
 
   &:before {
     content: "";
@@ -34,6 +33,8 @@ export const Clock = styled.div`
     width: 40px;
     height: 40px;
     background: url(${logo});
+    background-color: ${props => (props.theme.change ? "#f9f9f9" : "#091921")};
+    background-position: center center;
     background-repeat: no-repeat;
     border-radius: 50%;
     z-index: 10000;
@@ -80,7 +81,7 @@ export const Minutes = styled.div`
       position: absolute;
       width: 4px;
       height: 90px;
-      background: #fff;
+      background: ${props => (props.theme.change ? "#000" : "#fff")};
       z-index: 11;
       border-radius: 6px 6px 0 0;
     }
@@ -99,9 +100,21 @@ export const Seconds = styled.div`
       position: absolute;
       width: 2px;
       height: 150px;
-      background: #fff;
+      background: ${props => (props.theme.change ? "#000" : "#fff")};
       z-index: 12;
       border-radius: 6px 6px 0 0;
     }
   }
+`;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  align-self: flex-start;
+  margin-top: 80px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SwitchButton = styled(Switch)`
+  margin: 0 20px;
 `;
